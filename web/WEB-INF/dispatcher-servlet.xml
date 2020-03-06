@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+    
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+
+    <!--
+    Most controllers will use the ControllerClassNameHandlerMapping above, but
+    for the index controller we are using ParameterizableViewController, so we must
+    define an explicit mapping for it.
+    -->
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="index.htm">indexController</prop>
+                <prop key="login.htm">loginController</prop>
+                <prop key="menu.htm">menuController</prop>
+                <prop key="admin.htm">adminController</prop>
+                <prop key="usuarios.htm">usuariosController</prop>
+                <prop key="insertar.htm">insertarController</prop>
+                <prop key="actualizar.htm">actualizarController</prop>
+                <prop key="datosusuario.htm">datosusuarioController</prop>
+                <prop key="directorio.htm">directorioController</prop>
+                <prop key="escuelas.htm">escuelasController</prop>
+                <prop key="insertaresc.htm">insertarescController</prop>
+                <prop key="getescuela.htm">getescuelaController</prop>
+                <prop key="modescuela.htm">modescuelaController</prop>
+                <prop key="directores.htm">directoresController</prop>
+                <prop key="insertardir.htm">insertardirController</prop>
+                <prop key="getdirector.htm">getdirectorController</prop>
+                <prop key="moddirector.htm">moddirectorController</prop>
+                <prop key="supervisores.htm">supervisoresController</prop>
+                <prop key="insertarsup.htm">insertarsupController</prop>
+                <prop key="getsupervisor.htm">getsupervisorController</prop>
+                <prop key="modsupervisor.htm">modsupervisorController</prop>
+                <prop key="atps.htm">atpsController</prop>
+                <prop key="insertaratp.htm">insertaratpController</prop>
+                <prop key="getatp.htm">getatpController</prop>
+                <prop key="modatp.htm">modatpController</prop>
+                <prop key="jefes.htm">jefesController</prop>
+                <prop key="insertarjefe.htm">insertarjefeController</prop>
+                <prop key="getjefe.htm">getjefeController</prop>
+                <prop key="modjefe.htm">modjefeController</prop>
+                <prop key="cambiar_psw.htm">cambiar_pswController</prop>
+                <prop key="modpsw.htm">modpswController</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+
+    <!--
+    The index controller.
+    -->
+    <bean name="indexController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="index" />
+
+        <bean name="loginController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="login" />
+
+        <bean name="menuController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="menu" />
+        
+        <bean name="adminController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="admin" />
+        
+        <bean name="usuariosController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="usuarios" />
+        
+        <bean name="insertarController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="insertar" />
+    
+        <bean name="actualizarController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="actualizar" />
+             
+        <bean name="datosusuarioController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="datosusuario" />
+    
+        <bean name="directorioController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="directorio" />
+        
+        <bean name="escuelasController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="escuelas" />
+        
+        <bean name="insertarescController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="insertaresc" />
+
+        <bean name="getescuelaController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="getescuela" />
+        
+        <bean name="modescuelaController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="modescuela" />
+        
+        <bean name="directoresController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="directores" />
+        
+        <bean name="insertardirController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="insertardir" />
+        
+         <bean name="getdirectorController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="getdirector" />
+         
+         <bean name="moddirectorController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="moddirector" />
+         
+         <bean name="supervisoresController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="supervisores" />
+         
+         <bean name="insertarsupController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="insertarsup" />
+         
+         <bean name="getsupervisorController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="getsupervisor" />
+         
+        <bean name="modsupervisorController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="modsupervisor" />
+        
+        <bean name="atpsController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="atps" />
+        
+        <bean name="insertaratpController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="insertaratp" />
+        
+        <bean name="getatpController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="getatp" />
+          
+        <bean name="modatpController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="modatp" />
+          
+        <bean name="jefesController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="jefes" />
+          
+        <bean name="insertarjefeController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="insertarjefe" />
+          
+        <bean name="getjefeController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="getjefe" />
+
+        <bean name="modjefeController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="modjefe" />
+
+        <bean name="cambiar_pswController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="cambiar_psw" />  
+        
+        <bean name="modpswController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="modpsw" />  
+            
+</beans>
+
+
+
